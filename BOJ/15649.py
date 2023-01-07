@@ -15,14 +15,6 @@ def dfs():
         return
     for i in range(1, n + 1):
         if not visited[i]:
-            if len(arr) >= 1:
-                if i > arr[len(arr) - 1]:
-                    visited[i] = True
-                    arr.append(i)
-                    dfs()
-                    visited[i] = False
-                    arr.pop()
-                continue
             visited[i] = True
             arr.append(i)
             dfs()

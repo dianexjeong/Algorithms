@@ -11,14 +11,18 @@ arr = []
 
 def dfs():
     if len(arr) == m:
-        for j in range(2, len(arr) + 1):
-            if arr[j] < arr[j - 1]:
-                break
-            if j == len(arr):
-                print(" ".join(map(str, arr)))
+        print(" ".join(map(str, arr)))
         return
     for i in range(1, n + 1):
         if not visited[i]:
+            if len(arr) >= 1:
+                if i > arr[len(arr) - 1]:
+                    visited[i] = True
+                    arr.append(i)
+                    dfs()
+                    visited[i] = False
+                    arr.pop()
+                continue
             visited[i] = True
             arr.append(i)
             dfs()
